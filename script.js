@@ -78,7 +78,7 @@
 
       // ===== BOTÃO WHATSAPP NO PRODUTO =====
       const whatsappBtn = document.createElement('a');
-      whatsappBtn.href = `https://wa.me/552299978656?text=Gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20ess%C3%AAncia%20${encodeURIComponent(essencia.nome)}`;
+      whatsappBtn.href = `https://wa.me/5522999878656?text=Gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20ess%C3%AAncia%20${encodeURIComponent(essencia.nome)}`;
       whatsappBtn.target = '_blank';
       whatsappBtn.className = 'whatsapp-product-btn';
       whatsappBtn.innerHTML = `<i class="fab fa-whatsapp"></i> Comprar`;
