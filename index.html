@@ -13,8 +13,17 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <!-- CSS - CAMINHO CORRIGIDO -->
+  <link rel="stylesheet" href="/style.css" />
+  
+  <!-- Fallback caso o CSS não carregue -->
+  <style>
+    /* Estilos de emergência */
+    body { background: #faf7f2; font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+    .product-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -118,7 +127,7 @@
     </footer>
   </div>
 
-  <!-- JavaScript -->
-  <script src="script.js"></script>
+  <!-- JavaScript - CAMINHO CORRIGIDO -->
+  <script src="/script.js"></script>
 </body>
 </html>
