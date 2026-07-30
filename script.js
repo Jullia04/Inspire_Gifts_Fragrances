@@ -76,11 +76,44 @@
       const small = document.createElement('small');
       small.textContent = '· 4 tamanhos disponíveis';
 
+      // ===== BOTÃO WHATSAPP NO PRODUTO =====
+      const whatsappBtn = document.createElement('a');
+      whatsappBtn.href = `https://wa.me/552299978656?text=Gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20ess%C3%AAncia%20${encodeURIComponent(essencia.nome)}`;
+      whatsappBtn.target = '_blank';
+      whatsappBtn.className = 'whatsapp-product-btn';
+      whatsappBtn.innerHTML = `<i class="fab fa-whatsapp"></i> Comprar`;
+      whatsappBtn.style.cssText = `
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #25D366;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.85rem;
+        margin-top: 12px;
+        transition: background 0.2s, transform 0.2s;
+        width: fit-content;
+      `;
+      
+      // Adicionar hover com JavaScript (fallback)
+      whatsappBtn.onmouseover = function() {
+        this.style.background = '#128C7E';
+        this.style.transform = 'scale(1.02)';
+      };
+      whatsappBtn.onmouseout = function() {
+        this.style.background = '#25D366';
+        this.style.transform = 'scale(1)';
+      };
+
       card.appendChild(icon);
       card.appendChild(name);
       card.appendChild(variants);
       card.appendChild(preco);
       card.appendChild(small);
+      card.appendChild(whatsappBtn);
       grid.appendChild(card);
     });
   }
@@ -93,7 +126,6 @@
       currentFilter = this.dataset.filter;
       renderProducts(currentFilter);
 
-      // Reset paginação
       pagBtns.forEach((p, idx) => {
         p.classList.toggle('active', idx === 0);
       });
@@ -118,7 +150,6 @@
     });
   });
 
-  // Auto-play
   setInterval(() => {
     goToSlide(currentSlide + 1);
   }, 5000);

@@ -13,10 +13,9 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   
-  <!-- CSS - CAMINHO CORRIGIDO -->
+  <!-- CSS -->
   <link rel="stylesheet" href="/style.css" />
   
-  <!-- Fallback caso o CSS não carregue -->
   <style>
     /* Estilos de emergência */
     body { background: #faf7f2; font-family: Arial, sans-serif; margin: 0; padding: 20px; }
@@ -43,7 +42,13 @@
         <div class="nav-actions">
           <i class="fas fa-search"></i>
           <i class="fas fa-heart"></i>
-          <i class="fas fa-shopping-bag"></i>
+          <!-- Botão WhatsApp no header -->
+          <a href="https://wa.me/5522999878656?text=Gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20produtos%20Inspire%20Gifts" 
+             target="_blank" 
+             class="whatsapp-header" 
+             title="Fale conosco no WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
         </div>
       </nav>
     </header>
@@ -55,7 +60,11 @@
           <div>
             <h2>Inspire Gifts <br />Fragrances</h2>
             <p>Essências exclusivas para transformar cada ambiente.</p>
-            <button class="carousel-btn">Conheça</button>
+            <a href="https://wa.me/5522999878656?text=Gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20produtos%20Inspire%20Gifts" 
+               target="_blank" 
+               class="carousel-btn whatsapp-btn">
+              <i class="fab fa-whatsapp"></i> Fale conosco
+            </a>
           </div>
           <div style="font-size: 4rem; opacity: 0.3;">
             <i class="fas fa-leaf"></i> <i class="fas fa-spa"></i>
@@ -65,7 +74,11 @@
           <div>
             <h2>Coleção <br />Home Spray</h2>
             <p>30ml · 60ml · 100ml. A fragrância que combina com você.</p>
-            <button class="carousel-btn">Ver opções</button>
+            <a href="https://wa.me/5522999878656?text=Gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20Cole%C3%A7%C3%A3o%20Home%20Spray" 
+               target="_blank" 
+               class="carousel-btn whatsapp-btn">
+              <i class="fab fa-whatsapp"></i> Comprar agora
+            </a>
           </div>
           <div style="font-size: 4rem; opacity: 0.3;">
             <i class="fas fa-wind"></i> <i class="fas fa-home"></i>
@@ -75,7 +88,11 @@
           <div>
             <h2>Difusor <br />para carro</h2>
             <p>Leve o aroma Inspire com você. R$ 25,00</p>
-            <button class="carousel-btn">Adquirir</button>
+            <a href="https://wa.me/5522999878656?text=Gostaria%20de%20saber%20mais%20sobre%20o%20Difusor%20para%20carro" 
+               target="_blank" 
+               class="carousel-btn whatsapp-btn">
+              <i class="fab fa-whatsapp"></i> Adquirir
+            </a>
           </div>
           <div style="font-size: 4rem; opacity: 0.3;">
             <i class="fas fa-car"></i> <i class="fas fa-tree"></i>
@@ -104,6 +121,22 @@
       <!-- Produtos inseridos via JS -->
     </div>
 
+    <!-- ===== BANNER WHATSAPP ===== -->
+    <div class="whatsapp-banner">
+      <div class="whatsapp-banner-content">
+        <i class="fab fa-whatsapp whatsapp-banner-icon"></i>
+        <div>
+          <h3>Fale conosco no WhatsApp</h3>
+          <p>Tire suas dúvidas, faça pedidos ou solicite um atendimento personalizado.</p>
+        </div>
+        <a href="https://wa.me/5522999878656?text=Gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20produtos%20Inspire%20Gifts" 
+           target="_blank" 
+           class="whatsapp-banner-btn">
+          <i class="fab fa-whatsapp"></i> (22) 99987-8656
+        </a>
+      </div>
+    </div>
+
     <!-- ===== PAGINAÇÃO ===== -->
     <div class="pagination" id="pagination">
       <button class="active">1</button>
@@ -117,9 +150,12 @@
         <i class="fas fa-gem"></i> Inspire Gifts Fragrances
       </div>
       <div class="footer-social">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://wa.me/5522999878656?text=Gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20produtos%20Inspire%20Gifts" 
+           target="_blank" 
+           class="whatsapp-footer">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/inspire_gifts_fragrances?igsh=MTdzZjlkemV5YzI5ZA=="><i class="fab fa-instagram"></i></a>
       </div>
       <div class="footer-copy">
         &copy; 2026 Inspire Gifts · essências que inspiram.
@@ -127,7 +163,16 @@
     </footer>
   </div>
 
-  <!-- JavaScript - CAMINHO CORRIGIDO -->
+  <!-- ===== WHATSAPP FLUTUANTE ===== -->
+  <a href="https://wa.me/5522999878656?text=Gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20produtos%20Inspire%20Gifts" 
+     target="_blank" 
+     class="whatsapp-float" 
+     title="Fale conosco no WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="whatsapp-float-text">Fale conosco</span>
+  </a>
+
+  <!-- JavaScript -->
   <script src="/script.js"></script>
 </body>
 </html>
