@@ -1,18 +1,54 @@
 (function () {
-  // ===== DADOS =====
+  // ===== DADOS COM IMAGENS =====
   const essencias = [
-    { nome: 'Tania Bulhoes', categoria: 'classicas' },
-    { nome: 'Chá Branco', categoria: 'classicas' },
-    { nome: 'Tuti-Fruti', categoria: 'frutais' },
-    { nome: 'Pitanga Black', categoria: 'frutais' },
-    { nome: 'Oskley', categoria: 'amadeiradas' },
-    { nome: 'Dress to', categoria: 'classicas' },
-    { nome: 'Gabardine', categoria: 'amadeiradas' },
-    { nome: 'Suave Linho', categoria: 'classicas' },
-    { nome: 'Frutas Vermelhas', categoria: 'frutais' },
-    { nome: 'Cedro', categoria: 'amadeiradas' },
-    { nome: 'Lavanda', categoria: 'classicas' },
-    { nome: 'Flor de Laranjeira', categoria: 'frutais' },
+    { 
+      nome: 'Tania Bulhoes', 
+      categoria: 'classicas',
+      imagem: './assets/img/1.png',
+      descricao: 'Fragrância floral sofisticada'
+    },
+    { 
+      nome: 'Chá Branco', 
+      categoria: 'classicas',
+      imagem: './assets/img/2.png',
+      descricao: 'Aroma suave e relaxante'
+    },
+    { 
+      nome: 'Tuti-Fruti', 
+      categoria: 'frutais',
+      imagem: './assets/img/3.png',
+      descricao: 'Explosão de frutas vermelhas'
+    },
+    { 
+      nome: 'Pitanga Black', 
+      categoria: 'frutais',
+      imagem: './assets/img/4.png',
+      descricao: 'Aroma tropical intenso'
+    },
+    { 
+      nome: 'Suave Linho', 
+      categoria: 'amadeiradas',
+      imagem: './assets/img/5.png',
+      descricao: 'Notas amadeiradas e marcantes'
+    },
+    { 
+      nome: 'Gabardine', 
+      categoria: 'classicas',
+      imagem: './assets/img/6.png',
+      descricao: 'Elegância em cada nota'
+    },
+    { 
+      nome: 'Gabardine', 
+      categoria: 'amadeiradas',
+      imagem: './assets/img/7.png',
+      descricao: 'Aroma sofisticado e duradouro'
+    },
+    { 
+      nome: 'Suave Linho', 
+      categoria: 'classicas',
+      imagem: './assets/img/8.png',
+      descricao: 'Frescor de linho lavado'
+    }
   ];
 
   const opcoes = [
@@ -43,12 +79,10 @@
   function getFilteredProducts() {
     let filtered = essencias;
 
-    // Aplicar filtro de categoria
     if (currentFilter !== 'all') {
       filtered = filtered.filter((e) => e.categoria === currentFilter);
     }
 
-    // Aplicar busca por texto
     if (searchTerm.trim() !== '') {
       const term = searchTerm.toLowerCase().trim();
       filtered = filtered.filter((e) => 
@@ -59,13 +93,12 @@
     return filtered;
   }
 
-  // ===== RENDERIZAR PRODUTOS =====
+  // ===== RENDERIZAR PRODUTOS COM IMAGENS =====
   function renderProducts() {
     const filtered = getFilteredProducts();
     const totalItems = filtered.length;
     const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
 
-    // Ajustar página atual se necessário
     if (currentPage > totalPages) currentPage = 1;
     if (currentPage < 1) currentPage = 1;
 
@@ -73,7 +106,6 @@
     const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, totalItems);
     const pageItems = filtered.slice(startIndex, endIndex);
 
-    // Limpar grid
     grid.innerHTML = '';
 
     if (pageItems.length === 0) {
@@ -87,7 +119,7 @@
       grid.style.display = 'flex';
       grid.style.justifyContent = 'center';
       grid.style.alignItems = 'center';
-      grid.style.minHeight = '200px';
+      grid.style.minHeight = '300px';
     } else {
       grid.style.display = 'grid';
       grid.style.justifyContent = 'normal';
@@ -98,13 +130,37 @@
         const card = document.createElement('div');
         card.className = 'product-card';
 
-        const icon = document.createElement('div');
-        icon.className = 'product-image';
-        icon.innerHTML = `<i class="fas fa-flask"></i>`;
+        // ===== IMAGEM DO PRODUTO =====
+        const imageContainer = document.createElement('div');
+        imageContainer.className = 'product-image-container';
+        
+        const img = document.createElement('img');
+        img.src = essencia.imagem;
+        img.alt = essencia.nome;
+        img.className = 'product-image';
+        img.loading = 'lazy';
+        img.onerror = function() {
+          // Fallback se a imagem não carregar
+          this.style.display = 'none';
+          const fallback = document.createElement('div');
+          fallback.className = 'product-image-fallback';
+          fallback.innerHTML = `<i class="fas fa-flask"></i>`;
+          this.parentNode.appendChild(fallback);
+        };
+        
+        imageContainer.appendChild(img);
+
+        // ===== INFORMAÇÕES DO PRODUTO =====
+        const infoContainer = document.createElement('div');
+        infoContainer.className = 'product-info';
 
         const name = document.createElement('div');
         name.className = 'product-name';
         name.textContent = essencia.nome;
+
+        const descricao = document.createElement('div');
+        descricao.className = 'product-description';
+        descricao.textContent = essencia.descricao || 'Essência exclusiva Inspire Gifts';
 
         const variants = document.createElement('div');
         variants.className = 'product-variants';
@@ -123,6 +179,7 @@
         const small = document.createElement('small');
         small.textContent = '· 4 tamanhos disponíveis';
 
+        // ===== BOTÃO WHATSAPP =====
         const whatsappBtn = document.createElement('a');
         whatsappBtn.href = `https://wa.me/5522999878656?text=Gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20ess%C3%AAncia%20${encodeURIComponent(essencia.nome)}`;
         whatsappBtn.target = '_blank';
@@ -134,36 +191,43 @@
           gap: 8px;
           background: #25D366;
           color: white;
-          padding: 8px 16px;
+          padding: 8px 20px;
           border-radius: 30px;
           text-decoration: none;
           font-weight: 500;
           font-size: 0.85rem;
           margin-top: 12px;
-          transition: background 0.2s, transform 0.2s;
+          transition: all 0.3s ease;
           width: fit-content;
+          border: none;
+          cursor: pointer;
         `;
 
-        whatsappBtn.onmouseover = function() {
+        whatsappBtn.onmouseenter = function() {
           this.style.background = '#128C7E';
-          this.style.transform = 'scale(1.02)';
+          this.style.transform = 'scale(1.05)';
+          this.style.boxShadow = '0 4px 12px rgba(37, 211, 102, 0.3)';
         };
-        whatsappBtn.onmouseout = function() {
+        whatsappBtn.onmouseleave = function() {
           this.style.background = '#25D366';
           this.style.transform = 'scale(1)';
+          this.style.boxShadow = 'none';
         };
 
-        card.appendChild(icon);
-        card.appendChild(name);
-        card.appendChild(variants);
-        card.appendChild(preco);
-        card.appendChild(small);
-        card.appendChild(whatsappBtn);
+        // Montar o card
+        infoContainer.appendChild(name);
+        infoContainer.appendChild(descricao);
+        infoContainer.appendChild(variants);
+        infoContainer.appendChild(preco);
+        infoContainer.appendChild(small);
+        infoContainer.appendChild(whatsappBtn);
+
+        card.appendChild(imageContainer);
+        card.appendChild(infoContainer);
         grid.appendChild(card);
       });
     }
 
-    // Atualizar paginação
     renderPagination(totalPages, totalItems);
   }
 
@@ -176,13 +240,11 @@
       return;
     }
 
-    // Info do total
     const info = document.createElement('span');
     info.className = 'pagination-info';
     info.textContent = `Mostrando ${Math.min((currentPage - 1) * ITEMS_PER_PAGE + 1, totalItems)} - ${Math.min(currentPage * ITEMS_PER_PAGE, totalItems)} de ${totalItems}`;
     paginationContainer.appendChild(info);
 
-    // Botão Anterior
     const prevBtn = document.createElement('button');
     prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
     prevBtn.className = 'pagination-nav';
@@ -196,7 +258,6 @@
     });
     paginationContainer.appendChild(prevBtn);
 
-    // Botões de página
     const maxVisiblePages = 5;
     let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
     let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
@@ -232,7 +293,6 @@
       paginationContainer.appendChild(lastBtn);
     }
 
-    // Botão Próximo
     const nextBtn = document.createElement('button');
     nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
     nextBtn.className = 'pagination-nav';
@@ -306,12 +366,10 @@
     });
   });
 
-  // Auto-play do carrossel
   let carouselInterval = setInterval(() => {
     goToSlide(currentSlide + 1);
   }, 5000);
 
-  // Pausar auto-play ao passar o mouse
   const carousel = document.getElementById('carousel');
   carousel.addEventListener('mouseenter', () => {
     clearInterval(carouselInterval);
