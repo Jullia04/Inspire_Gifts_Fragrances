@@ -26,25 +26,25 @@
       descricao: 'Aroma tropical intenso'
     },
     { 
-      nome: 'Oskley', 
-      categoria: 'amadeiradas',
+      nome: 'Suave Linho', 
+      categoria: 'floral',
       imagem: 'assets/img/5.png',  // Removeu a barra inicial
-      descricao: 'Notas amadeiradas e marcantes'
+      descricao: 'Notas florais e marcantes'
     },
     { 
-      nome: 'Dress to', 
+      nome: 'Gabardine', 
       categoria: 'classicas',
       imagem: 'assets/img/6.png',  // Removeu a barra inicial
       descricao: 'Elegância em cada nota'
     },
     { 
-      nome: 'Gabardine', 
-      categoria: 'amadeiradas',
+      nome: 'Dress to', 
+      categoria: 'floral',
       imagem: 'assets/img/7.png',  // Removeu a barra inicial
       descricao: 'Aroma sofisticado e duradouro'
     },
     { 
-      nome: 'Suave Linho', 
+      nome: 'Oskley', 
       categoria: 'classicas',
       imagem: 'assets/img/8.png',  // Removeu a barra inicial
       descricao: 'Frescor de linho lavado'
