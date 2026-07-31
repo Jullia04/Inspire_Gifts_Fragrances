@@ -12,12 +12,20 @@
     {
       "src": "**/*.js",
       "use": "@vercel/static"
+    },
+    {
+      "src": "assets/img/*.png",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/",
       "dest": "/index.html"
+    },
+    {
+      "src": "/assets/img/(.*)",
+      "dest": "/assets/img/$1"
     },
     {
       "src": "/(.*)",
@@ -31,6 +39,10 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "Content-Type",
+          "value": "image/png"
         }
       ]
     }
