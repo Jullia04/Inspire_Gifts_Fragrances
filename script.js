@@ -4,49 +4,49 @@
     { 
       nome: 'Tania Bulhoes', 
       categoria: 'classicas',
-      imagem: '/assets/img/1.png',
+      imagem: 'assets/img/1.png',  // Removeu a barra inicial
       descricao: 'Fragrância floral sofisticada'
     },
     { 
       nome: 'Chá Branco', 
       categoria: 'classicas',
-      imagem: '/assets/img/2.png',
+      imagem: 'assets/img/2.png',  // Removeu a barra inicial
       descricao: 'Aroma suave e relaxante'
     },
     { 
       nome: 'Tuti-Fruti', 
       categoria: 'frutais',
-      imagem: '/assets/img/3.png',
+      imagem: 'assets/img/3.png',  // Removeu a barra inicial
       descricao: 'Explosão de frutas vermelhas'
     },
     { 
       nome: 'Pitanga Black', 
       categoria: 'frutais',
-      imagem: '/assets/img/4.png',
+      imagem: 'assets/img/4.png',  // Removeu a barra inicial
       descricao: 'Aroma tropical intenso'
     },
     { 
-      nome: 'Suave Linho', 
+      nome: 'Oskley', 
       categoria: 'amadeiradas',
-      imagem: '/assets/img/5.png',
+      imagem: 'assets/img/5.png',  // Removeu a barra inicial
       descricao: 'Notas amadeiradas e marcantes'
     },
     { 
-      nome: 'Gabardine', 
+      nome: 'Dress to', 
       categoria: 'classicas',
-      imagem: '/assets/img/6.png',
+      imagem: 'assets/img/6.png',  // Removeu a barra inicial
       descricao: 'Elegância em cada nota'
     },
     { 
       nome: 'Gabardine', 
       categoria: 'amadeiradas',
-      imagem: '/assets/img/7.png',
+      imagem: 'assets/img/7.png',  // Removeu a barra inicial
       descricao: 'Aroma sofisticado e duradouro'
     },
     { 
       nome: 'Suave Linho', 
       categoria: 'classicas',
-      imagem: '/assets/img/8.png',
+      imagem: 'assets/img/8.png',  // Removeu a barra inicial
       descricao: 'Frescor de linho lavado'
     }
   ];
@@ -139,12 +139,19 @@
         img.alt = essencia.nome;
         img.className = 'product-image';
         img.loading = 'lazy';
+        
+        // Função de fallback com log para debug
         img.onerror = function() {
-          // Fallback se a imagem não carregar
+          console.log('Erro ao carregar imagem:', essencia.imagem);
           this.style.display = 'none';
           const fallback = document.createElement('div');
           fallback.className = 'product-image-fallback';
-          fallback.innerHTML = `<i class="fas fa-flask"></i>`;
+          fallback.innerHTML = `
+            <div style="text-align:center; padding:20px;">
+              <i class="fas fa-flask" style="font-size: 2.5rem; display:block; margin-bottom:8px; color:#a67c5b;"></i>
+              <span style="font-size:0.8rem; color:#7e6e62;">${essencia.nome}</span>
+            </div>
+          `;
           this.parentNode.appendChild(fallback);
         };
         
