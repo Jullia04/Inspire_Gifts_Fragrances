@@ -24,6 +24,10 @@
       "dest": "/index.html"
     },
     {
+      "src": "/contato",
+      "dest": "/contato.html"
+    },
+    {
       "src": "/assets/img/(.*)",
       "dest": "/assets/img/$1"
     },
