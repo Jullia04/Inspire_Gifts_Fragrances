@@ -4,49 +4,49 @@
     { 
       nome: 'Tania Bulhoes', 
       categoria: 'classicas',
-      imagem: './assets/img/1.png',
+      imagem: '/assets/img/1.png',
       descricao: 'Fragrância floral sofisticada'
     },
     { 
       nome: 'Chá Branco', 
       categoria: 'classicas',
-      imagem: './assets/img/2.png',
+      imagem: '/assets/img/2.png',
       descricao: 'Aroma suave e relaxante'
     },
     { 
       nome: 'Tuti-Fruti', 
       categoria: 'frutais',
-      imagem: './assets/img/3.png',
+      imagem: '/assets/img/3.png',
       descricao: 'Explosão de frutas vermelhas'
     },
     { 
       nome: 'Pitanga Black', 
       categoria: 'frutais',
-      imagem: './assets/img/4.png',
+      imagem: '/assets/img/4.png',
       descricao: 'Aroma tropical intenso'
     },
     { 
       nome: 'Suave Linho', 
       categoria: 'amadeiradas',
-      imagem: './assets/img/5.png',
+      imagem: '/assets/img/5.png',
       descricao: 'Notas amadeiradas e marcantes'
     },
     { 
       nome: 'Gabardine', 
       categoria: 'classicas',
-      imagem: './assets/img/6.png',
+      imagem: '/assets/img/6.png',
       descricao: 'Elegância em cada nota'
     },
     { 
       nome: 'Gabardine', 
       categoria: 'amadeiradas',
-      imagem: './assets/img/7.png',
+      imagem: '/assets/img/7.png',
       descricao: 'Aroma sofisticado e duradouro'
     },
     { 
       nome: 'Suave Linho', 
       categoria: 'classicas',
-      imagem: './assets/img/8.png',
+      imagem: '/assets/img/8.png',
       descricao: 'Frescor de linho lavado'
     }
   ];
