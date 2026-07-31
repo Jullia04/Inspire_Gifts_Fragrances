@@ -96,7 +96,6 @@ body {
   cursor: default;
 }
 
-/* ===== WHATSAPP NO HEADER ===== */
 .whatsapp-header {
   color: #25D366;
   text-decoration: none;
@@ -206,13 +205,14 @@ body {
   background: #2e241f;
 }
 
-/* ===== FILTRO + TÍTULO ===== */
+/* ===== FILTRO + BUSCA ===== */
 .section-header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   flex-wrap: wrap;
   margin: 48px 0 24px;
+  gap: 16px;
 }
 
 .section-header h2 {
@@ -224,6 +224,49 @@ body {
 
 .section-header span {
   color: #a67c5b;
+}
+
+.filter-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 1px solid #d8cdc2;
+  border-radius: 30px;
+  padding: 4px 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-box:focus-within {
+  border-color: #a67c5b;
+  box-shadow: 0 0 0 3px rgba(166, 124, 91, 0.1);
+}
+
+.search-box i {
+  color: #bbb0a6;
+  font-size: 0.9rem;
+  margin-right: 10px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  width: 180px;
+  color: #2e241f;
+}
+
+.search-box input::placeholder {
+  color: #bbb0a6;
 }
 
 .filter-tabs {
@@ -319,6 +362,77 @@ body {
 .product-card small {
   font-size: 0.7rem;
   color: #7e6e62;
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 24px;
+  border: 2px dashed #e7ddd4;
+}
+
+/* ===== PAGINAÇÃO ===== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 40px 0 60px;
+  flex-wrap: wrap;
+}
+
+.pagination-info {
+  font-size: 0.85rem;
+  color: #7e6e62;
+  margin-right: 16px;
+}
+
+.pagination button {
+  background: transparent;
+  border: 1px solid #d8cdc2;
+  padding: 8px 14px;
+  border-radius: 40px;
+  font-weight: 500;
+  color: #2e241f;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 40px;
+  text-align: center;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: #f5f0ea;
+  border-color: #a67c5b;
+}
+
+.pagination button.active {
+  background: #2e241f;
+  color: #fcf6ef;
+  border-color: #2e241f;
+}
+
+.pagination button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.pagination-nav {
+  background: transparent !important;
+  border: none !important;
+  font-size: 0.9rem;
+  padding: 8px 12px !important;
+}
+
+.pagination-nav:hover:not(:disabled) {
+  background: #f5f0ea !important;
+  border-radius: 50% !important;
+}
+
+.pagination-ellipsis {
+  color: #7e6e62;
+  padding: 0 4px;
 }
 
 /* ===== BANNER WHATSAPP ===== */
@@ -420,32 +534,6 @@ body {
   }
 }
 
-/* ===== PAGINAÇÃO ===== */
-.pagination {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin: 40px 0 60px;
-}
-
-.pagination button {
-  background: transparent;
-  border: 1px solid #d8cdc2;
-  padding: 8px 16px;
-  border-radius: 40px;
-  font-weight: 500;
-  color: #2e241f;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.pagination button.active,
-.pagination button:hover {
-  background: #2e241f;
-  color: #fcf6ef;
-  border-color: #2e241f;
-}
-
 /* ===== RODAPÉ ===== */
 footer {
   border-top: 1px solid #e7ddd4;
@@ -500,6 +588,27 @@ footer {
 }
 
 /* ===== RESPONSIVO ===== */
+@media (max-width: 900px) {
+  .section-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .filter-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+
+  .filter-tabs {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 700px) {
   .navbar {
     flex-direction: column;
@@ -550,10 +659,30 @@ footer {
     bottom: 20px;
     right: 20px;
   }
+
+  .pagination {
+    gap: 6px;
+  }
+
+  .pagination-info {
+    width: 100%;
+    text-align: center;
+    margin-right: 0;
+  }
 }
 
 @media (max-width: 450px) {
   .product-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .product-card {
+    padding: 16px 12px 20px;
+  }
+
+  .product-image {
+    height: 80px;
+    font-size: 2.4rem;
   }
 }

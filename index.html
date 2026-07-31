@@ -14,15 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   
   <!-- CSS -->
-  <link rel="stylesheet" href="/style.css" />
-  
-  <style>
-    /* Estilos de emergência */
-    body { background: #faf7f2; font-family: Arial, sans-serif; margin: 0; padding: 20px; }
-    .container { max-width: 1200px; margin: 0 auto; }
-    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
-    .product-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
@@ -42,7 +34,6 @@
         <div class="nav-actions">
           <i class="fas fa-search"></i>
           <i class="fas fa-heart"></i>
-          <!-- Botão WhatsApp no header -->
           <a href="https://wa.me/5522999878656?text=Gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20produtos%20Inspire%20Gifts" 
              target="_blank" 
              class="whatsapp-header" 
@@ -106,19 +97,32 @@
       </div>
     </div>
 
-    <!-- ===== FILTRO + GRADE ===== -->
+    <!-- ===== FILTRO + BUSCA + GRADE ===== -->
     <div class="section-header">
       <h2>Essências <span>· Inspire</span></h2>
-      <div class="filter-tabs" id="filterTabs">
-        <button class="active" data-filter="all">Todos</button>
-        <button data-filter="classicas">Clássicas</button>
-        <button data-filter="frutais">Frutais</button>
-        <button data-filter="amadeiradas">Amadeiradas</button>
+      <div class="filter-controls">
+        <!-- Busca -->
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Buscar essência..." />
+        </div>
+        <!-- Filtros -->
+        <div class="filter-tabs" id="filterTabs">
+          <button class="active" data-filter="all">Todos</button>
+          <button data-filter="classicas">Clássicas</button>
+          <button data-filter="frutais">Frutais</button>
+          <button data-filter="amadeiradas">Amadeiradas</button>
+        </div>
       </div>
     </div>
 
     <div class="product-grid" id="productGrid">
       <!-- Produtos inseridos via JS -->
+    </div>
+
+    <!-- ===== PAGINAÇÃO ===== -->
+    <div class="pagination" id="pagination">
+      <!-- Gerada via JS -->
     </div>
 
     <!-- ===== BANNER WHATSAPP ===== -->
@@ -135,13 +139,6 @@
           <i class="fab fa-whatsapp"></i> (22) 99987-8656
         </a>
       </div>
-    </div>
-
-    <!-- ===== PAGINAÇÃO ===== -->
-    <div class="pagination" id="pagination">
-      <button class="active">1</button>
-      <button>2</button>
-      <button>3</button>
     </div>
 
     <!-- ===== RODAPÉ ===== -->
@@ -173,6 +170,6 @@
   </a>
 
   <!-- JavaScript -->
-  <script src="/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
